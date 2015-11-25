@@ -199,16 +199,7 @@ $(window).bind("debouncedresize", function(){
 	var overlay = $('.overlay');
 	var links = $('.menu-list');
 	var toggler = $('.toggler');
- $(document).ready(function() {
-	 if ( $(window).width() >= 450) {
-			overlay.velocity('fadeIn', 500);
-			links
-      .velocity({ 
-        opacity: 1,
-      
-      }, 500);
-		}
-	});
+ 
 
 
 
@@ -231,7 +222,7 @@ $(window).bind("debouncedresize", function(){
 		      
 		      }, 500);
 		        isClosed = false;
-		      } else {
+		      } 	else {
 			//Hide the nav and X -> hamburger
 		      	  burger.removeClass('is-open');
 		        burger.addClass('is-closed');
@@ -257,7 +248,7 @@ $(window).bind("debouncedresize", function(){
 		        opacity: 1,
 		      
 		      }, 500);
-			isClosed = false;
+			
 			
 			}
 	};
@@ -320,12 +311,7 @@ moveLeft( toggler, 0, 0);
 $(window).bind('debouncedresize',  function() {
 	moveLeft( toggler, 0, 500);
 });
-links.velocity({ 
-  opacity: 0.4,
-  // translateY: '-75%',
-  // translateX: '-50%',
-  // rotateX: '35deg'
-}, 0);
+
 
 
 }(jQuery));
