@@ -43,9 +43,10 @@
       a:focus,
       a:hover {
         color: #333;
-        font-family: 'Roboto', cursive;
+        font-family: 'Roboto', monospace;
         text-decoration: none;
         display: inline-block;
+        border-radius: 7px;
       }
       .menu-list li{
         line-height: 35px;
@@ -55,6 +56,10 @@
         opacity: .6;
         box-shadow: 4px 5px 5px rgba(0,0,0,0.5);
       
+      }
+
+      .active {
+        background: #00BCD4;
       }
 
       /* Custom default button */
@@ -87,7 +92,7 @@
       body {
         color: #333;
         text-align: center;
-        font-family: 'Roboto', "sans-serif";
+        font-family: 'Roboto', "monospace";
         background-color: rgba(255,255,255,0.8);
         font-weight: 400;
 
@@ -132,7 +137,9 @@
         margin-bottom: 4em;
       }
       
-
+      .main {
+        box-sizing: border-box;
+      }
       
        .code-wrapper {
         width: 95%;
@@ -191,8 +198,8 @@
 
       .flex-page-container {
 
-      margin-bottom: 3em;
-
+      margin-bottom: 5em;
+      position: relative;
       transition: all 500ms;
 
       }
@@ -209,7 +216,7 @@
      
 
       .job-title{
-        color: #fff;
+
         border-left: 1px solid #fff;
         border-right: 1px solid #fff;
         padding: 1em;
@@ -1022,7 +1029,10 @@ justify-content: flex-start;
        
 
       }
-
+      .images {
+        border-radius: 15px;
+        margin: 1em;
+      }
       .lead {
 
       
@@ -1116,10 +1126,7 @@ justify-content: flex-start;
 
 
        .job-title {
-        
-        border: none;
-        padding: 0;
-        color: #fff;
+
         min-height: 3em;
        
        }
@@ -1258,7 +1265,10 @@ justify-content: flex-start;
       }
 
 
+      .exp {
 
+        width: 67%;
+      }
       .flex-page-container:nth-child(0n+1) > .cover-container {
         -ms-flex-item-align: center;
                 -webkit-align-self: center;

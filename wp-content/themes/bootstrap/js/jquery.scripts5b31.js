@@ -279,7 +279,7 @@ clickable.click(function(){
 	destination
 	.velocity("scroll", {queue: false
       }, {
-	 duration: 500, easing: "spring" 
+	 duration: 500, easing: "spring", offset: -590 
 	});
 
 	
@@ -315,6 +315,17 @@ $(window).bind('debouncedresize',  function() {
 
 
 }(jQuery));
+
+
+
+
+	$('.menu-item').click(function(e) {
+		// e.preventDefault();
+
+		$('.menu-item.active').removeClass('active');	
+		$(this).addClass('active');
+	});
+
 
 
 function isSafari() {
