@@ -272,6 +272,37 @@
 
       }
 
+a.selected {
+
+
+  z-index:100;
+}
+
+.extra-text {
+  background-color:#FFFFFF;
+  border:1px solid #999999;
+  cursor:default;
+  display:none;
+  position:absolute;
+  text-align:left;
+  max-width:394px;
+  z-index:50;
+  padding: 25px 25px 20px;
+  border-radius: 5px;
+  left: 20px;
+  top: -100px;
+}
+.close {
+
+  font-size: 1.3em;
+  color: rgb(40, 40, 190);
+  height: 60px;
+  padding-top: 20px;
+  text-align: center;
+  margin-top: 10px;
+  display: block;
+
+}
 
 
       .progress {
@@ -1092,6 +1123,7 @@ justify-content: flex-start;
 
        .flex-page-container:nth-child(0n+1) > .cover-container {
         width: 100%;
+        position: relative;
         -webkit-justify-content: inherit;
             -ms-flex-pack: inherit;
                 justify-content: space-around;
