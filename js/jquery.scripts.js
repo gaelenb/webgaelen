@@ -317,6 +317,7 @@ moveLeft( toggler, 0, 0);
 // toggler.velocity('fadeIn', {delay: 4000, duration: 1900});
 $(window).bind('debouncedresize',  function() {
 	moveLeft( toggler, 0, 500);
+	menuControl();
 });
 
 
