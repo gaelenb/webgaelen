@@ -43,7 +43,9 @@
   
 
 }
-
+.clear {
+  clear: both;
+}
 .menu-list {
   margin-left: auto;
   margin-right: auto;
@@ -901,14 +903,14 @@
 
       .overlay {
         background-color: #fff;
-        position: fixed;
+        position: absolute;
         z-index: 120;
         top: 0;
         opacity: 0;
         display: block;
         overflow: hidden;
         text-align: left;
-        height: 100vh;
+
       width: 100%;
 
       }
@@ -1143,9 +1145,11 @@ justify-content: flex-start;
        }
 
         .section-resume {
-          width: 35%;
+          width: 85%;
         }
-       
+       .section-resume .images {
+        width: 90%;
+       }
        .resume-section {
         width: 100%;
         font-size: 4.4em;
@@ -1204,23 +1208,7 @@ justify-content: flex-start;
         h3 {
           font-size: 2.3em;
         }
-        .overlay {
-          height: 56px;
- background: transparent;         display: block;
-          
-        }
-        .toggler {
-          display: none;
-          
-        }
-        .menu-list {
-          opacity: .9;
-        }
-        .menu-list > li {
-          display: inline-block;
-          width: 24%;
-        }
-  
+
     
       .intro {
 
@@ -1256,26 +1244,61 @@ justify-content: flex-start;
         width: 100%;
         height: 7px;
       }
-
+      .section-resume .images {
+        width: 300px;
+      }
 
 
       /*End 450 @media */
 
       }
+* {
+  box-sizing: border-box;
+}
 
+body, html {
+padding: 0;
+margin: 0;
+}
 
+@media (min-width: 700px) {
+   .overlay {
+          height: 56px;
+ 
+          background: transparent;
+          display: block;
+          position: fixed;
+        }
+        .toggler {
+          display: none;
+          
+        }
+        .menu-list {
+          opacity: .9;
+        }
+        .menu-list > li {
+          display: block;
+          width: 24%;
+          float: left;
+          margin-left: 1%;
+        }
 
+        .section-resume {
+          width: 45%;
+        }
+  
+}
       @media (min-width: 750px){
         
 
-      .portfolio-text {
+     /* .portfolio-text {
         width: 700px;
       }
 
       .code-wrapper {
         width: 700px;
       }
-
+*/
       .portfolio-text {
         margin-left: 1.5em;
       }

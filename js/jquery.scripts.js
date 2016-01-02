@@ -147,44 +147,44 @@ function moveLeft( ele, offset, timeOffset ) {
 // Display Contact $('.card') 
 
 
-(function($){
-	// var $('.card') = $('.$('.card')');
+// (function($){
+// 	// var $('.card') = $('.$('.card')');
 	
 
-moveLeft($('.card'), 0, 3500);
+// moveLeft($('.card'), 0, 3500);
 
-$(window).bind("debouncedresize", function(){
+// $(window).bind("debouncedresize", function(){
 
-	moveLeft($('.card'), 0, 0);
+// 	moveLeft($('.card'), 0, 0);
 
-	});
-	var mySequence = [
+// 	});
+// 	var mySequence = [
    
-    { e: $('.card'), p: { zIndex: 1 }, o: { duration: 0 } },
+//     { e: $('.card'), p: { zIndex: 1 }, o: { duration: 0 } },
 
-    { e: $('.card'),
-      p: 'transition.perspectiveRightIn',
-      o: { duration: 900, sequenceQueue: false } 
-  	}
-];
+//     { e: $('.card'),
+//       p: 'transition.perspectiveRightIn',
+//       o: { duration: 900, sequenceQueue: false } 
+//   	}
+// ];
 
-	$('.trigger').click( function() {
+// 	$('.trigger').click( function() {
 		
-		var display = $('.card').css('display');
+// 		var display = $('.card').css('display');
 		
 
-	if ( display === 'none' ) { 
+// 	if ( display === 'none' ) { 
 
-		$.Velocity.RunSequence(mySequence);	
+// 		$.Velocity.RunSequence(mySequence);	
 
-	} else {
-		$('.card').hide();
-		$('.card').velocity({opacity: 0},  100);
-		}
+// 	} else {
+// 		$('.card').hide();
+// 		$('.card').velocity({opacity: 0},  100);
+// 		}
 
-	});
+// 	});
 		
-})(jQuery);
+// })(jQuery);
 
 
 
@@ -194,7 +194,7 @@ $(window).bind("debouncedresize", function(){
 
 	
 	var burger = $('.hamburglar'),
-        isClosed = true;
+        isClosed = false;
 	var count = false;
 	var overlay = $('.overlay');
 	var links = $('.menu-list');
@@ -204,15 +204,18 @@ $(window).bind("debouncedresize", function(){
 
 
     var menuControl = function() {
+    	
 
-		if ($(window).width() <= 450) {
+
+
+		if ($(window).width() <= 700) {
 			
 		    	//Display the nav and hamburger -> X
 		    if (isClosed === true) {
-
+			var topOffset = 80 + $(document).scrollTop();
 		        burger.removeClass('is-closed');
 		        burger.addClass('is-open');
-
+		    overlay.velocity({top: topOffset});
 
 		    overlay
 		      .velocity('fadeIn', 300);
@@ -270,7 +273,7 @@ var destination = $( to  + from );
 
 count = true;
 clickable.click(function(){
-	if ($(window).width() <= 450 && toggleMenu) {
+	if ($(window).width() <= 700 && toggleMenu) {
 		menuControl();
 	
 	overlay
@@ -324,7 +327,7 @@ $(window).bind('debouncedresize',  function() {
 
 
 	$('.menu-item').click(function(e) {
-		// e.preventDefault();
+		e.preventDefault();
 
 		$('.menu-item.active').removeClass('active');	
 		$(this).addClass('active');
