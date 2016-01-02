@@ -245,17 +245,19 @@ function moveLeft( ele, offset, timeOffset ) {
 		      }
 
 		} else {
-			
-			overlay.velocity('fadeIn', {
+			console.log("worked");
+			overlay
+			  .velocity('fadeIn', {
 				duration: 200,
-				opacity: 0.7
+				opacity: 0.7,
+	
 				});
 			links
 		      .velocity({ 
 		        opacity: 0.7,
 		      
 		      }, 500);
-			
+			overlay.velocity({top: 0});
 			
 			}
 	};
