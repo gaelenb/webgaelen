@@ -1719,6 +1719,10 @@ html {
   padding-top: 2rem;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1744,6 +1748,11 @@ html {
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .text-lg {
@@ -2108,10 +2117,6 @@ html {
 
 @media (min-width: 1024px) {
 
-  .lg\:mt-12 {
-    margin-top: 3rem;
-  }
-
   .lg\:block {
     display: block;
   }
@@ -2122,10 +2127,6 @@ html {
 
   .lg\:h-80 {
     height: 20rem;
-  }
-
-  .lg\:h-96 {
-    height: 24rem;
   }
 
   .lg\:w-1\/4 {
@@ -2171,10 +2172,6 @@ html {
 
   .lg\:pt-0 {
     padding-top: 0px;
-  }
-
-  .lg\:text-left {
-    text-align: left;
   }
 
   .lg\:text-3xl {
