@@ -1,284 +1,612 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+  <meta charset="utf-8" />
 
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    name="viewport"
+  />
 
+  <title>Gaelen - Web Developer</title>
 
-  <title>GB WD&amp;D</title>
+  <meta property="og:title" content="Gaelen - Web Developer" />
 
+  <meta property="og:locale" content="en_US" />
 
-  <link rel="alternate" type="application/rss+xml" title="GB WD&amp;D &raquo; Home Comments Feed" href="home/feed/index.html" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel='stylesheet' id='main_css-css' href='styles/style.css?ver=4.3.1' type='text/css' media='all' />
+  <link
+    rel="canonical"
+    href="/"
+  />
 
+  <meta
+    property="og:url"
+    content="//"
+  />
 
+  <meta
+    name="description"
+    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  />
 
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
 
+  <meta name="theme-color" content="#5540af" />
 
-  <link rel='canonical' href='index.html' />
-  <link rel='shortlink' href='index.html' />
+  <meta property="og:site_name" content="Atom Template" />
+
+  <meta property="og:image" content="assets/img/social.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="twitter:site" content="@tailwindmade" />
+
+  <link
+    crossorigin="crossorigin"
+    href="https://fonts.gstatic.com"
+    rel="preconnect"
+  />
+
+  <link
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap"
+    rel="preload"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+    rel="stylesheet"
+  />
+
+  <link
+    href="assets/styles/main.min.css"
+    media="screen"
+    rel="stylesheet"
+  />
+
+  <script
+    defer
+    src="https://unpkg.com/@alpine-collective/toolkit@1.0.0/dist/cdn.min.js"
+  ></script>
+
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
 
 </head>
 
-<body>
-  <div class="toggler">
-    <div>Menu</div>
-    <div class="hamburglar is-closed">
 
-      <div class="burger-icon">
-        <div class="burger-container">
-          <span class="burger-bun-top green-theme"></span>
-          <span class="burger-filling orange-theme"></span>
-          <span class="burger-bun-bot blue-theme"></span>
-        </div>
-      </div>
+  <body
+    :class="{ 'overflow-hidden max-h-screen': mobileMenu }"
+    class="relative"
+    x-data="{ mobileMenu: false }"
+  >
 
-      <!-- svg ring containter -->
+    <div id="main" class="relative">
+      <div
+  x-data="{
+    triggerNavItem(id) {
+        $scroll(id)
+    },
+    triggerMobileNavItem(id) {
+        mobileMenu = false;
+        this.triggerNavItem(id)
+    }
+}"
+>
+  <div class="w-full z-50 top-0 py-3 sm:py-5  absolute  bg-primary
+  ">
+  <div class="container flex items-center justify-between">
+    <div class="hidden lg:block">
+      <ul class="flex items-center">
 
+        <li class="group pl-6">
+
+          <span
+            @click="triggerNavItem('#about')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >About</span
+          >
+
+          <span
+            class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
+          ></span>
+        </li>
+
+        <li class="group pl-6">
+
+          <span
+            @click="triggerNavItem('#portfolio')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Portfolio</span
+          >
+
+          <span
+            class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
+          ></span>
+        </li>
+
+        <!-- <li class="group pl-6">
+
+          <span
+            @click="triggerNavItem('#contact')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Contact</span
+          >
+
+          <span
+            class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
+          ></span>
+        </li> -->
+
+      </ul>
+    </div>
+    <div class="block lg:hidden">
+      <button @click="mobileMenu = true">
+        <i class="bx bx-menu text-4xl text-white"></i>
+      </button>
     </div>
   </div>
-  <div class="overlay">
+</div>
 
-    <nav role="navigation">
+<div
+  class="pointer-events-none fixed inset-0 z-70 min-h-screen bg-black bg-opacity-70 opacity-0 transition-opacity lg:hidden"
+  :class="{ 'opacity-100 pointer-events-auto': mobileMenu }"
+>
+  <div
+    class="absolute right-0 min-h-screen w-2/3 bg-primary py-4 px-8 shadow md:w-1/3"
+  >
+    <button
+      class="absolute top-0 right-0 mt-4 mr-4"
+      @click="mobileMenu = false"
+    >
+      <img src="assets/img/icon-close.svg" class="h-10 w-auto" alt="" />
+    </button>
 
-      <ul class="menu-list">
+    <ul class="mt-8 flex flex-col">
 
-        <li class="menu-item white-theme active">Home</li>
+      <li class="py-2">
 
+        <span
+          @click="triggerMobileNavItem('#about')"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          >About</span
+        >
 
-        <li class="menu-item green-theme">About</li>
-        <li class="menu-item orange-theme">Portfolio</li>
-        <li class="menu-item trigger blue-theme">Contact</li>
-        <span class="clear"></span>
+      </li>
 
-        <!-- <div class="card">
-                        <ul>
-                            <li><a title="email" href="gaelenb0720%40gmail.com">gaelenb0720@gmail.com</a></li>
-                            <li>
-                                <h4>In the coding community:</h4></li>
-                            <li>
-                                <a href="http://codepen.io/gaelenb/"><img class="size-full lazyload" data-src="http://www.webgaelen.com/wp-content/uploads/2015/09/codepen-min.png" alt="" width="138" height="38" /></a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/gaelenb"><img class="size-full lazyload" data-src="http://www.webgaelen.com/wp-content/uploads/2015/09/GitHub_Logo.png" alt="" width="138" height="38" /></a>
-                            </li>
-                        </ul>
+      <li class="py-2">
 
-                    </div>
-                </li> -->
-      </ul>
+        <span
+          @click="triggerMobileNavItem('#portfolio')"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          >Portfolio</span
+        >
 
+      </li>
 
+      <li class="py-2">
+
+        <span
+          @click="triggerMobileNavItem('#contact')"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          >Contact</span
+        >
+
+      </li>
+
+    </ul>
   </div>
+</div>
 
+<div>
 
-  </ul>
-
-  </nav>
-
-  </div>
-  <div class="main">
-
-    <section class="flex-page-container white-theme">
-
-
-      <section class="intro">
-
-        <p class="lead">
-        </p>
-
-        <a href="https://github.com/gaelenb"> <img class="images" src="images/gaelen.jpg" width="200">
-          <h3 style="margin-top: 0;">Gaelen B</h3>
-        </a>
-      </section>
-
-
-      <div class="cover-container flex-row-container">
-        <div class="extra-text">Bars represent the time I've spent using these tools & technologies during my first two years of building and working on websites.<a href="#" style="display:block;">
-            <h4 class="close">Close</h4>
-          </a></div>
-        <a href="#" id="trigger-text">
-          <h3 class="full-width-header" title="">Skills at a glance*</h3>
-        </a>
-        <div class="widget-column">
-          <div class="widget">
-            <div class="textwidget"><span class="skill-text">HTML5/CSS3</span>
-              <span class="progress progress-wrap" data-progress-percent="75">
-                <div class="progress-bar progress"></div>
-
-              </span>
+  <div class="bg-grey-50" id="about">
+    <div class="container flex flex-col items-center py-16 md:py-20 lg:flex-row">
+      <div class="w-full text-left sm:w-3/4 lg:w-3/5 pt-20 lg:pt-0">
+        <h2
+          class="font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
+        >
+          My Name is Gaelen
+        </h2>
+        <h4
+          class="pt-6 font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl"
+        >
+          I build websites.
+        </h4>
+        <div>
+          <img
+            src="images/gaelen.jpg"
+            class="rounded float-left h-48 pr-2"
+            alt="author"
+          />
+          <p class="text-grey-20">
+            I have been working on websites for about 10 years. Starting with WordPress content management
+            for UW–Madison and for the last 8 years full stack development for a software company.
+          </p>
+        </div>
+        <div
+          class="flex flex-col justify-center pt-6 sm:flex-row lg:justify-start"
+        >
+          <div class="flex items-center justify-center sm:justify-start">
+            <p class="font-body text-lg font-semibold uppercase text-grey-20">
+              Connect with me
+            </p>
+            <div class="hidden sm:block">
+              <i class="bx bx-chevron-right text-2xl text-primary"></i>
             </div>
           </div>
-          <div class="widget">
-            <div class="textwidget"><span class="skill-text">JavaScript/jQuery</span>
-              <span class="progress progress-wrap" data-progress-percent="45">
-                <div class="progress-bar progress"></div>
+          <div
+            class="flex items-center justify-center pt-5 pl-2 sm:justify-start sm:pt-0"
+          >
 
-              </span>
-            </div>
-          </div>
-          <div class="widget">
-            <div class="textwidget">
-              <span class="skill-text">WordPress/Theme Development</span>
-              <span class="progress progress-wrap" data-progress-percent="65 ">
-                <div class="progress-bar progress "></div>
-
-              </span>
-            </div>
+            <a href="https://www.linkedin.com/in/gaelenbraithwait/" class="pl-4">
+              <i
+                class="bx bxl-linkedin text-2xl text-primary hover:text-yellow"
+              ></i>
+            </a>
+            <a href="https://github.com/gaelenb" class="pl-4">
+              <i
+                class="bx bxl-github text-2xl text-primary hover:text-yellow"
+              ></i>
+            </a>
           </div>
         </div>
-
-
-        <div class="widget-column ">
-          <div class="widget ">
-            <div class="textwidget ">
-              <span class="skill-text ">Bootstrap</span>
-              <span class="progress progress-wrap " data-progress-percent="55 ">
-                <div class="progress-bar progress "></div>
-
-              </span>
-            </div>
-          </div>
-          <div class="widget ">
-            <div class="textwidget "><span class="skill-text ">Responsive Design</span>
-              <span class="progress progress-wrap " data-progress-percent="45 ">
-                <div class="progress-bar progress "></div>
-            </div>
-          </div>
-          <div class="widget ">
-            <div class="textwidget "><span class="skill-text ">Git</span>
-              <span class="progress progress-wrap " data-progress-percent="25 ">
-                <div class="progress-bar progress "></div>
-            </div>
-          </div>
-        </div>
-
       </div>
-
-    </section>
-    </section>
-    <section class="flex-page-container green-theme ">
-
-
-      <h2 class="resume-section ">About</h2>
-
-
-      <section class="cover-container ">
-
-
-        <section class="widget-work-column ">
-          <div class="textwidget ">
-            <section class="exp ">
-              <h3>Passion</h3>
-              <p>
-                Do you remember the feeling you had, as a kid, playing with legos? Or being left unsupervised with a bottle of super-glue and a house of things that could use some additional features? Tape recorder attached to the T.V.? Way ahead of
-                your time. Whether playing with some new JavaScript framework or bashing my head against some recalcitrant console error, I feel like that kid.
-              </p>
-              <h3>Patient persistance</h3>
-
-              to help create. With time, I may be able to help someone share their idea. This opportunity may simply materialize by determining why someone's slider isn't <span
-                title="although I hope their vision doesn't rely on a slider... Unless it's a burger">working*</span> or why their page takes 6 seconds to load. But that's still pretty cool.
-
-              <h3>Who do you get?</h3>
-
-              Someone who's eager to learn, collaborate, problem solve, and strive to be a valuable asset to you, your team and your customers.
-            </section>
+      <div class="w-full pl-0 pt-10 sm:w-3/4 lg:w-2/5 lg:pl-12 lg:pt-0">
+        <div>
+          <div class="flex items-end justify-between">
+            <h4 class="font-body font-semibold uppercase text-black">Laravel</h4>
+            <h3 class="font-body text-3xl font-bold text-primary">65%</h3>
           </div>
-        </section>
-      </section>
-
-
-    </section>
-
-    <section class="flex-page-container orange-theme ">
-
-      <h2 class="resume-section ">Recent work</h2>
-
-
-      <section class="cover-container ">
-        <section class="widget-work-column section-resume">
-          <div class="textwidget ">
-            <h4 class="job-title ">IEPPEC Website</h4>
-            <a href="http://www.ieppec.org">
-              <img class="images" src="images/ieppecThumbnail.png">
-            </a>
+          <div class="mt-2 h-3 w-full rounded-full bg-lila">
+            <div class="h-3 rounded-full bg-primary" style="width: 65%"></div>
           </div>
-        </section>
-        <section class="widget-work-column section-resume">
-          <div class="text-widget">
-            <h4 class="project-title">Pomodoro 'clone'</h4>
-            <p data-height="268" data-theme-id="19614" data-slug-hash="rOXzmo" data-default-tab="result" data-user="gaelenb" class='codepen'>See the Pen <a href='http://codepen.io/gaelenb/pen/rOXzmo/'>Pomodomopolus </a> by Gaelen B (<a
-                href='http://codepen.io/gaelenb'>@gaelenb</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-            <script async src="https://assets.codepen.io/assets/embed/ei.js"></script>
+        </div>
+        <div class="pt-6">
+          <div class="flex items-end justify-between">
+            <h4 class="font-body font-semibold uppercase text-black">
+              Javascript
+            </h4>
+            <h3 class="font-body text-3xl font-bold text-primary">80%</h3>
           </div>
-        </section>
-        <section class="widget-work-column section-resume">
-          <div class="textwidget ">
-            <h4 class="job-title ">IEPPEC Website</h4>
-            <a href="http://www.ieppec.org">
-              <img class="images" src="images/ieppecThumbnail.png">
-            </a>
+          <div class="mt-2 h-3 w-full rounded-full bg-lila">
+            <div class="h-3 rounded-full bg-primary" style="width: 80%"></div>
           </div>
-        </section>
-
-
-        <section class="widget-work-column section-resume">
-          <div class="textwidget ">
-            <h4 class="job-title ">Interactive Transcript API</h4>
-            <a href="http://grad.wisc.edu/pd/pastevents#search">
-              <img class="images" src="images/portfolio1.png">
-            </a>
-
+        </div>
+        <div class="pt-6">
+          <div class="flex items-end justify-between">
+            <h4 class="font-body font-semibold uppercase text-black">WordPress</h4>
+            <h3 class="font-body text-3xl font-bold text-primary">75%</h3>
           </div>
-        </section>
-      </section>
-
-    </section>
-
-    <section class="flex-page-container blue-theme ">
-
-      <h2 class="resume-section ">Get in touch</h2>
-
-
-      <section class="cover-container ">
-        <section class="widget-work-column ">
-          <div class="textwidget ">
-            <h3>gaelenb0720@gmail.com</h3>
+          <div class="mt-2 h-3 w-full rounded-full bg-lila">
+            <div class="h-3 rounded-full bg-primary" style="width: 75%"></div>
           </div>
-        </section>
-        <section class="widget-work-column ">
-          <div class="textwidget ">
-            <a href="https://github.com/gaelenb"> <img src="images/GitHub_Logo.png" height="82" width="200"> </a>
+        </div>
+        <div class="pt-6">
+          <div class="flex items-end justify-between">
+            <h4 class="font-body font-semibold uppercase text-black">
+              HTML & CSS
+            </h4>
+            <h3 class="font-body text-3xl font-bold text-primary">99%</h3>
           </div>
-        </section>
-
-        <section class="widget-work-column ">
-          <div class="textwidget ">
-            <a href="https://www.linkedin.com/in/gaelenbraithwait"> <img src="images/linkedin.png" height="77" width="200"> </a>
+          <div class="mt-2 h-3 w-full rounded-full bg-lila">
+            <div class="h-3 rounded-full bg-primary" style="width: 99%"></div>
           </div>
-        </section>
-      </section>
-      <section class="widget-row ">
-      </section>
-
-    </section>
-
-    <section class="flex-page-container purple-theme ">
-
-
+        </div>
+        <div class="pt-6">
+          <div class="flex items-end justify-between">
+            <h4 class="font-body font-semibold uppercase text-black">Vue.js</h4>
+            <h3 class="font-body text-3xl font-bold text-primary">35%</h3>
+          </div>
+          <div class="mt-2 h-3 w-full rounded-full bg-lila">
+            <div class="h-3 rounded-full bg-primary" style="width: 35%"></div>
+          </div>
+        </div>
+        <div class="pt-6">
+          <div class="flex items-end justify-between">
+            <h4 class="font-body font-semibold uppercase text-black">Git</h4>
+            <h3 class="font-body text-3xl font-bold text-primary">65%</h3>
+          </div>
+          <div class="mt-2 h-3 w-full rounded-full bg-lila">
+            <div class="h-3 rounded-full bg-primary" style="width: 65%"></div>
+          </div>
+        </div>
+        <div class="pt-6">
+          <div class="flex items-end justify-between">
+            <h4 class="font-body font-semibold uppercase text-black">PHP</h4>
+            <h3 class="font-body text-3xl font-bold text-primary">75%</h3>
+          </div>
+          <div class="mt-2 h-3 w-full rounded-full bg-lila">
+            <div class="h-3 rounded-full bg-primary" style="width: 75%"></div>
+          </div>
+        </div>
+        <p class="text-grey-20 pt-6">The progress bars above represent the approximate amounts of time I've spent using those technologies over 10 years.</p>
+      </div>
+    </div>
   </div>
-  <script type='text/javascript' src='js/jquery/jquery.js?ver=1.11.3'></script>
-  <script type='text/javascript' src='js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
-  <script type='text/javascript' src='js/velocity.min.js?ver=4.3.1'></script>
 
-  <script type='text/javascript' src='js/jquery.scripts.js?ver=4.3.1'></script>
-  <script type='text/javascript' src='js/velocity.ui.min.js?ver=4.3.1'></script>
-</body>
+  <div class="container py-16 md:py-20" id="portfolio">
+    <h2
+      class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
+    >
+      Check out my Portfolio
+    </h2>
+
+    <div class="w-full">
+    <h3
+      class="pt-6 mt-12 font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl"
+    >
+      Current publicly available and live websites. Primarily featuring Laravel, WordPress as Headless CMS, Javascript, Bootstrap and CSS.
+    </h3>
+    </div>
+    <div
+      class="mx-auto grid w-full grid-cols-1 gap-8 pt-12 sm:w-3/4 md:gap-10 lg:w-full lg:grid-cols-2"
+    >
+    <a href="https://convergecfd.com"
+      class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-56 lg:h-80"
+    >
+      <img
+        src="images/portfolio/convergecfd-homepage.png"
+        class="w-full shadow"
+        alt="portfolio image"
+      />
+    </a>
+    <a href="https://fuelmech.org"
+      class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-56 lg:h-80"
+    >
+      <img
+        src="images/portfolio/fuelmech.png"
+        class="w-full shadow"
+        alt="portfolio image"
+      />
+    </a>
+    <a href="https://uc.convergecfd.com"
+      class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-56 lg:h-80"
+    >
+      <img
+        src="images/portfolio/uc-homepage.png"
+        class="w-full shadow"
+        alt="portfolio image"
+      />
+    </a>
+  </div>
+    <h3
+      class="pt-6 mt-12 text-center font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl"
+    >
+      Recorded demos primarily featuring the use of PHP, Laravel, Vue.js and Bootstrap
+    </h3>
+
+    <div
+      class="mx-auto grid w-full grid-cols-1 gap-8 pt-12 sm:w-3/4 md:gap-10 lg:w-full lg:grid-cols-2"
+    >
+      <div
+      class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden lg:h-80"
+      >
+      <a class="underline" target="_blank" href="https://convergecfd.com/presentations/search"><h4 class="text-center font-medium text-black text-base">Presention Search</h4></a>
+        <video controls="controls" width="800" height="600" name="Video Name" class="w-full">
+          <source src="images/portfolio/presentation-search.mov">
+        </video>
+      </div>
+      <div
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden lg:h-80"
+      >
+      <h4 class="text-center font-medium text-black text-base">Bibliography Database Search and Export to PDF</h4>
+        <video controls="controls" width="800" height="600" name="Video Name" class="w-full">
+          <source src="images/portfolio/bib-search-autonomous-cs-export.mov">
+        </video>
+      </div>
+      <div
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden lg:h-96"
+      >
+      <h4 class="text-center font-medium text-black text-base">Bibliography Database Create Citation</h4>
+        <video controls="controls" width="800" height="600" name="Video Name" class="w-full">
+          <source src="images/portfolio/bib-create-citation.mov">
+        </video>
+      </div>
+    </div>
+      <div class="w-full">
+      <h3
+        class="pt-6 mt-12 font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl"
+      >
+        Conference websites over the years, with mobile and desktop views. Primarily featuring Bootstrap and CSS.
+      </h3>
+      <p class="italic">Note all of these screenshots are rebuilt out of a Git repo. Some image assets are missing because they no longer exist.</p>
+      </div>
+      <div
+        class="mx-auto grid w-full grid-cols-1 gap-8 pt-12 sm:w-3/4 md:gap-10 lg:w-full lg:grid-cols-2"
+      >
+      <a target="_blank" href="images/portfolio/desk-2020-user-conference.test_us_.png"
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-80"
+      >
+      <h4 class="text-center font-medium text-black text-base">2023 UC Homepage - Desktop</h4>
+        <img
+          src="images/portfolio/desktop-2023-user-conference.test_cfd23.png"
+          class="w-full shadow"
+          alt="portfolio image"
+        />
+      </a>
+      <a target="_blank" href="images/portfolio/desk-2020-user-conference.test_us_.png"
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-80"
+      >
+      <h4 class="text-center font-medium text-black text-base">2023 UC Homepage - Mobile</h4>
+        <img
+          src="images/portfolio/mobile-2023-user-conference.test_cfd23.png"
+          class="w-full shadow"
+          alt="portfolio image"
+        />
+      </a>
+      <a target="_blank" href="images/portfolio/desk-2020-user-conference.test_us_.png"
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-80"
+      >
+      <h4 class="text-center font-medium text-black text-base">2022 UC Homepage - Desktop</h4>
+        <img
+          src="images/portfolio/desktop-2022-user-conference.test_global.png"
+          class="w-full shadow"
+          alt="portfolio image"
+        />
+      </a>
+      <a target="_blank" href="images/portfolio/desk-2020-user-conference.test_us_.png"
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-80"
+      >
+      <h4 class="text-center font-medium text-black text-base">2022 UC Homepage - Mobile</h4>
+        <img
+          src="images/portfolio/mobile-2022-user-conference.test_global.png"
+          class="w-full shadow"
+          alt="portfolio image"
+        />
+      </a>
+      <a target="_blank" href="images/portfolio/desk-2020-user-conference.test_us_.png"
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-80"
+      >
+      <h4 class="text-center font-medium text-black text-base">2021 UC Homepage - Desktop</h4>
+        <img
+          src="images/portfolio/desk-2020-user-conference.test_us_.png"
+          class="w-full shadow"
+          alt="portfolio image"
+        />
+      </a>
+      <a target="_blank" href="images/portfolio/desk-2020-user-conference.test_us_training.png"
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-80"
+      >
+      <h4 class="text-center font-medium text-black text-base">2021 UC Landing Page - Desktop</h4>
+        <img
+          src="images/portfolio/desk-2020-user-conference.test_us_training.png"
+          class="w-full shadow"
+          alt="portfolio image"
+        />
+      </a>
+      <a target="_blank" href="images/portfolio/mobile-2020-user-conference.test_us_training.png"
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-80"
+      >
+      <h4 class="text-center font-medium text-black text-base">2021 UC Landing Page - Mobile</h4>
+        <img
+          src="images/portfolio/mobile-2020-user-conference.test_us_training.png"
+          class="w-full shadow"
+          alt="portfolio image"
+        />
+      </a>
+      <a target="_blank" href="images/portfolio/mobile-2020-user-conference.test_us_conference.png"
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-80"
+      >
+      <h4 class="text-center font-medium text-black text-base">2021 UC Landing Page - Mobile</h4>
+        <img
+          src="images/portfolio/mobile-2020-user-conference.test_us_conference.png"
+          class="w-full shadow"
+          alt="portfolio image"
+        />
+      </a>
+
+      <a target="_blank" href="images/portfolio/desk-2019-user-conference.test_us.png"
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-80"
+      >
+      <h4 class="text-center font-medium text-black text-base">2019 UC Landing Page - Desktop</h4>
+        <img
+          src="images/portfolio/desk-2019-user-conference.test_us.png"
+          class="w-full shadow"
+          alt="portfolio image"
+        />
+      </a>
+      <a target="_blank" href="images/portfolio/mobile-2019-user-conference.test_us_speakers-agenda.png"
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-80"
+      >
+      <h4 class="text-center font-medium text-black text-base">2019 UC Landing Page - Desktop</h4>
+        <img
+          src="images/portfolio/mobile-2019-user-conference.test_us_speakers-agenda.png"
+          class="w-full shadow"
+          alt="portfolio image"
+        />
+      </a>
+      <a target="_blank" href="images/portfolio/mobile-2019-user-conference.test_us_training.png"
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-80"
+      >
+      <h4 class="text-center font-medium text-black text-base">2019 UC Landing Page - Mobile</h4>
+        <img
+          src="images/portfolio/mobile-2019-user-conference.test_us_training.png"
+          class="w-full shadow"
+          alt="portfolio image"
+        />
+      </a>
+      <a target="_blank" href="images/portfolio/desk-user-conference.test_europe-2018.png"
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-80"
+      >
+      <h4 class="text-center font-medium text-black text-base">2018 UC Homepage - Desktop</h4>
+        <img
+          src="images/portfolio/desk-user-conference.test_europe-2018.png"
+          class="w-full shadow"
+          alt="portfolio image"
+        />
+      </a>
+      <a target="_blank" href="images/portfolio/mobile-user-conference.test_europe.png"
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-80"
+      >
+      <h4 class="text-center font-medium text-black text-base">2018 UC Homepage - Mobile</h4>
+        <img
+          src="images/portfolio/mobile-user-conference.test_europe.png"
+          class="w-full shadow"
+          alt="portfolio image"
+        />
+      </a>
+      <a target="_blank" href="images/portfolio/desk-user-conference.test_us-2018.png"
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-80"
+      >
+      <h4 class="text-center font-medium text-black text-base">2018 UC Homepage - Desktop</h4>
+        <img
+          src="images/portfolio/desk-user-conference.test_us-2018.png"
+          class="w-full shadow"
+          alt="portfolio image"
+        />
+      </a>
+      <a target="_blank" href="images/portfolio/desk-user-conference.test_us_speakers-agenda-2018.png"
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-80"
+      >
+      <h4 class="text-center font-medium text-black text-base">2018 UC Landing Page - Desktop</h4>
+        <img
+          src="images/portfolio/desk-user-conference.test_us_speakers-agenda-2018.png"
+          class="w-full shadow"
+          alt="portfolio image"
+        />
+      </a>
+      <a href="mages/portfolio/mobile-user-conference.test_us_speakers-agenda-2018.png"
+        class="mx-auto transform transition-all hover:scale-105 md:mx-0 overflow-hidden h-80"
+      >
+      <h4 class="text-center font-medium text-black text-base">2018 UC Landing Page - Mobile</h4>
+        <img
+          src="images/portfolio/mobile-user-conference.test_us_speakers-agenda-2018.png"
+          class="w-full shadow"
+          alt="portfolio image"
+        />
+      </a>
+    </div>
+  </div>
+
+      <div class="bg-primary">
+  <div class="container flex flex-col justify-between py-6 sm:flex-row">
+    <div class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0">
+      <a href="https://www.linkedin.com/in/gaelenbraithwait/" class="pl-4">
+        <i
+          class="bx bxl-linkedin text-2xl text-white hover:text-yellow"
+        ></i>
+      </a>
+      <a href="https://github.com/gaelenb" class="pl-4">
+        <i
+          class="bx bxl-github text-2xl text-white hover:text-yellow"
+        ></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <script src="assets/js/main.js"></script>
 
 
+  </body>
 </html>
